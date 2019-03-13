@@ -3,9 +3,10 @@
 use yii\helpers\Html;
 
 ?>
-<div class="site-index">
+<div class="site-index" style="margin-top: 75px;">
 
     <div class="body-content">
+        <h1>RESULTS:</h1>
 
         <div class="row">
             <table style="margin-top: 30px; padding: 5px; width: 800px;">
