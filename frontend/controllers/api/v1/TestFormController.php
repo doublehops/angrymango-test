@@ -16,6 +16,7 @@ class TestFormController extends ActiveController
         $test->attributes = Yii::$app->request->post();
 
         if (!$test->validate()) {
+            Yii::$app->response->statusCode = 422;
             return $test->getErrors();
         }
 
