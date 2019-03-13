@@ -13,6 +13,12 @@ This solution has been completed as a web frontend as well as a RESTful API endp
 INSTALLATION INSTRUCTIONS
 -------------------
 
+The installation with Vagrant needs the following packages installed on the host machine:
+- Virtualbox
+- Vagrant
+- Ansible
+- Python
+
 Add line to /etc/hosts by typing
 `echo '192.168.30.122 angrymango.test' | sudo tee -a /etc/hosts`
 
@@ -30,7 +36,7 @@ Note: For some reason this Vagrant box doesn't have Python3 installed so we need
 ```
 # ssh angrymango.test
 # sudo apt-get update && sudo apt-get upgrade
-# sudo apt-get install python3
+# sudo apt-get install python3 -y
 # sudo ln -s /usr/bin/python3 /usr/bin/python
 ```
 
