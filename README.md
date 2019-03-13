@@ -13,6 +13,12 @@ This solution has been completed as a web frontend as well as a RESTful API endp
 INSTALLATION INSTRUCTIONS
 -------------------
 
+The installation with Vagrant needs the following packages installed on the host machine:
+- Virtualbox
+- Vagrant
+- Ansible
+- Python
+
 Add line to /etc/hosts by typing
 `echo '192.168.30.122 angrymango.test' | sudo tee -a /etc/hosts`
 
@@ -25,6 +31,14 @@ IdentityFile /var/www/angrymango/.vagrant/machines/default/virtualbox/private_ke
 ~~~
 
 Startup virtual machine - change to the project's working directory: `vagrant up`.
+
+Note: For some reason this Vagrant box doesn't have Python3 installed so we need to do it manually:
+```
+# ssh angrymango.test
+# sudo apt-get update && sudo apt-get upgrade
+# sudo apt-get install python3 -y
+# sudo ln -s /usr/bin/python3 /usr/bin/python
+```
 
 Provision Vagrant machine: `dev/provision.sh local_dev`
 
@@ -45,7 +59,7 @@ Web browser: Point your browsert to `http://angrymango.test` and follow the link
 RESTful API. Either use Postman or cURL from the command line as such:
 ```
 curl -X POST \
-  http://angrymango.test/api/test-form/test \
+  http://angrymango.test/api/v1/test-form/test \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '{
@@ -65,6 +79,14 @@ I was not sure if it was an expectation to include a library to make the float t
 
 Comments have been added and PSR2 coding standards have been adhered to. No tests have been added for this as it would require more time to setup than I have right now. Gitflow methodology has been used to keep branching clear and make past work much easier to find and understand.
 
+Screenshot examples follow:
+===========================
+
+Web Interface Example
+----------------------
 <img src="images/AngryMangoTest.png" alt="Example of page" />
+
+RESTful API Example
+----------------------
 <img src="images/AngryMangoTest-API-failure.png" alt="Example of page" />
 <img src="images/AngryMangoTest-API-success.png" alt="Example of page" />

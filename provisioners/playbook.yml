@@ -6,7 +6,7 @@
   roles:
     - common
     - add_ppas
-    - webserver
-    - database
     - php7
+    - database
+    - webserver
     

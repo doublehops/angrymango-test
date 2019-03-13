@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\controllers\api;
+namespace frontend\controllers\api\v1;
 
 use yii;
 use yii\rest\ActiveController;
@@ -16,6 +16,7 @@ class TestFormController extends ActiveController
         $test->attributes = Yii::$app->request->post();
 
         if (!$test->validate()) {
+            Yii::$app->response->statusCode = 422;
             return $test->getErrors();
         }
 
