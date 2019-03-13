@@ -1,60 +1,54 @@
-<p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
-    </a>
-    <h1 align="center">Yii 2 Advanced Project Template</h1>
-    <br>
-</p>
+Angry Mango Test Application
+===============================
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
+This solution was built with the following technologies:
+- Yii2 PHP framework
+- Vagrant (with Virtualbox) development host
+- Ansible to provision the webserver
+- Webstack of Debian, Nginx, PHP7 and MySQL (MySQL not used)
 
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
 
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
-
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
-
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
-
-DIRECTORY STRUCTURE
+INSTALLATION INSTRUCTIONS
 -------------------
 
-```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-    tests/               contains tests for common classes    
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for backend application    
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for frontend application
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
-```
+Add line to /etc/hosts by typing
+`echo '192.168.30.122 angrymango.test' | sudo tee -a /etc/hosts`
+
+Add record to ~/.ssh/config (modify to match the path on your host machine.
+~~~
+Host angrymango.test
+User vagrant
+Hostname angrymango.test
+IdentityFile /var/www/angrymango/.vagrant/machines/default/virtualbox/private_key
+~~~
+
+Startup virtual machine - change to the project's working directory: `vagrant up`.
+
+Provision Vagrant machine: `dev/provision.sh local_dev`
+
+ssh into Vagrant machine `ssh angrymango.test` and type:
+~~~
+composer global require "fxp/composer-asset-plugin:^1.1.4"
+composer install
+~~~
+
+The site shouuld now load in your browser at `http://angrymango.test`
+
+
+TEST INSTRUCTIONS
+-------------------
+
+Point your browsert to `http://angrymango.test` and follow the link to to test form. Fill out the form and submit.
+
+
+TECHNICAL DESCRIPTION
+----------------------
+As I am applying for the role of backend developer I have not made any effort on the visual design of the application and just focused on functionality.
+
+The code structure is classic MVC with the `SiteController` handling the input and output with the `TestModel` handling data validation and business logic. It would be easiest to check the [pull requests on Github](https://github.com/doublehops/angrymango-test/pulls?q=is%3Apr+is%3Aclosed) to see what files were created/changed and what changed within them. 
+
+I was not sure if it was an expectation to include a library to make the float to English conversion but assumed one should be built from scratch. This was done in the model and the result is the effort of making to code clean, clear with as little code as possible without duplicating any code where possible. Validation has been included to help user input and prevent abuse. 
+
+Comments have been added and PSR2 coding standards have been adhered to. No tests have been added for this as it would require more time to setup than I have right now. Gitflow methodology has been used to keep branching clear and make past work much easier to find and understand.
+
+<img src="images/AngryMangoTest.png" alt="Example of page" />
