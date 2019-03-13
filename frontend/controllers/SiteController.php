@@ -77,6 +77,9 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+	/**
+	 * Controller action to show test form and show results.
+	 */
     public function actionForm()
     {
         $testModel = new TestModel;
