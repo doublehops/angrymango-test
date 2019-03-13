@@ -15,7 +15,23 @@ $this->title = 'Angry Mango Test Application';
     <div class="body-content">
 
         <div class="row">
+            <h2>Web Interface Test</h2>
             <?= Html::a('Goto test form', 'site/form', ['class' => 'btn btn-lg btn-success']) ?>
+        </div>
+
+		<hr style="color: #F00" />
+
+        <div class="row">
+            <h2>RESTful API test</h2>
+            <p>Alternatively, a RESTful API has been setup to test with this method. You can either test using Postman or from cURL in the shell:</p>
+            <code>
+				curl -X POST \<br />
+				  http://angrymango.test/api/test-form/test \<br />
+				  -H 'cache-control: no-cache' \<br />
+				  -H 'content-type: application/json' \<br />
+				  -d '{ "name": "John", "number": 8123.67 }'
+
+            </code>
         </div>
 
     </div>
