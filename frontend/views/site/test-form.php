@@ -34,6 +34,10 @@ $this->title = 'Angry Mango Test Application';
     		</div>
 
             <?php ActiveForm::end(); ?>
+
+	        <?php if ($data) : ?>
+   	            <?= $this->render('/site/test-form-results', ['data' => $data]) ?>
+    	    <?php endif ?>
         </div>
 
     </div>

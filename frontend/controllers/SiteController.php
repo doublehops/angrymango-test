@@ -81,11 +81,21 @@ class SiteController extends Controller
     {
         $testModel = new TestModel;
 
+        $data = false;
+
         if (Yii::$app->request->post()) {
             $testModel->load(Yii::$app->request->post());
+
+            if ($testModel->validate()) {
+                $data = [
+                    'name' => $testModel->name,
+                    'number' => $testModel->number,
+                    'convertedNumber' => $testModel->convertNumber($testModel->number),
+                ];
+            }
         }
 
-        return $this->render('test-form', ['model' => $testModel]);
+        return $this->render('test-form', ['model' => $testModel, 'data' => $data]);
     }
 
     /**
