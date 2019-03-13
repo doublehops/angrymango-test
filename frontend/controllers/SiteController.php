@@ -13,6 +13,8 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 
+use common\models\TestModel;
+
 /**
  * Site controller
  */
@@ -73,6 +75,27 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    public function actionForm()
+    {
+        $testModel = new TestModel;
+
+        $data = false;
+
+        if (Yii::$app->request->post()) {
+            $testModel->load(Yii::$app->request->post());
+
+            if ($testModel->validate()) {
+                $data = [
+                    'name' => $testModel->name,
+                    'number' => $testModel->number,
+                    'convertedNumber' => $testModel->convertNumber($testModel->number),
+                ];
+            }
+        }
+
+        return $this->render('test-form', ['model' => $testModel, 'data' => $data]);
     }
 
     /**
