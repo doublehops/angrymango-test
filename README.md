@@ -45,8 +45,10 @@ TECHNICAL DESCRIPTION
 ----------------------
 As I am applying for the role of backend developer I have not made any effort on the visual design of the application and just focused on functionality.
 
-The code structure is classic MVC with the SiteController handling the input and output with the TestModel handling data validation and business logic. It would be easiest to check the [pull requests on Github](https://github.com/doublehops/angrymango-test/pulls?q=is%3Apr+is%3Aclosed) to see what files were created/changed and what changed within them. 
+The code structure is classic MVC with the `SiteController` handling the input and output with the `TestModel` handling data validation and business logic. It would be easiest to check the [pull requests on Github](https://github.com/doublehops/angrymango-test/pulls?q=is%3Apr+is%3Aclosed) to see what files were created/changed and what changed within them. 
 
 I was not sure if it was an expectation to include a library to make the float to English conversion but assumed one should be built from scratch. This was done in the model and the result is the effort of making to code clean, clear with as little code as possible without duplicating any code where possible. Validation has been included to help user input and prevent abuse. 
 
-Comments have been added and PSR2 coding standards have been adhered to. No tests have been added for this as it would require more time to setup than I have right now. Gitflow methodology has been used to keep branching clear and make past changes much easier to find and understand.
+Comments have been added and PSR2 coding standards have been adhered to. No tests have been added for this as it would require more time to setup than I have right now. Gitflow methodology has been used to keep branching clear and make past work much easier to find and understand.
+
+<img src="images/AngryMangoTest.png" alt="Example of page" />
