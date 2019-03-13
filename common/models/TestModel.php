@@ -26,6 +26,19 @@ class TestModel extends Model
         ];
     }
 
+    public function fields()
+    {
+        return [
+            'name',
+            'originalNumber' => function() {
+                return $this->number;
+            },
+            'convertedNumber' => function() {
+                return $this->convertNumber($this->number);
+            },
+        ];
+    }
+
     /**
      * Convert number to English.
      *

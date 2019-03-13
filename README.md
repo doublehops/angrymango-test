@@ -7,6 +7,8 @@ This solution was built with the following technologies:
 - Ansible to provision the webserver
 - Webstack of Debian, Nginx, PHP7 and MySQL (MySQL not used)
 
+This solution has been completed as a web frontend as well as a RESTful API endpoint.
+
 
 INSTALLATION INSTRUCTIONS
 -------------------
@@ -38,7 +40,19 @@ The site shouuld now load in your browser at `http://angrymango.test`
 TEST INSTRUCTIONS
 -------------------
 
-Point your browsert to `http://angrymango.test` and follow the link to to test form. Fill out the form and submit.
+Web browser: Point your browsert to `http://angrymango.test` and follow the link to to test form. Fill out the form and submit.
+
+RESTful API. Either use Postman or cURL from the command line as such:
+```
+curl -X POST \
+  http://angrymango.test/api/test-form/test \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -d '{
+	"name": "jon",
+	"number": 123.23
+}'
+```
 
 
 TECHNICAL DESCRIPTION
@@ -52,3 +66,5 @@ I was not sure if it was an expectation to include a library to make the float t
 Comments have been added and PSR2 coding standards have been adhered to. No tests have been added for this as it would require more time to setup than I have right now. Gitflow methodology has been used to keep branching clear and make past work much easier to find and understand.
 
 <img src="images/AngryMangoTest.png" alt="Example of page" />
+<img src="images/AngryMangoTest-API-failure.png" alt="Example of page" />
+<img src="images/AngryMangoTest-API-success.png" alt="Example of page" />
