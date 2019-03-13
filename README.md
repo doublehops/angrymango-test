@@ -59,7 +59,7 @@ Web browser: Point your browsert to `http://angrymango.test` and follow the link
 RESTful API. Either use Postman or cURL from the command line as such:
 ```
 curl -X POST \
-  http://angrymango.test/api/test-form/test \
+  http://angrymango.test/api/v1/test-form/test \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '{

@@ -26,7 +26,7 @@ $this->title = 'Angry Mango Test Application';
             <p>Alternatively, a RESTful API has been setup to test with this method. You can either test using Postman or from cURL in the shell:</p>
             <code>
 				curl -X POST \<br />
-				  http://angrymango.test/api/test-form/test \<br />
+				  http://angrymango.test/api/v1/test-form/test \<br />
 				  -H 'cache-control: no-cache' \<br />
 				  -H 'content-type: application/json' \<br />
 				  -d '{ "name": "John", "number": 8123.67 }'

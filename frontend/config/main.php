@@ -44,7 +44,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/test-form'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/v1/test-form'],
             ],
         ],
     ],
