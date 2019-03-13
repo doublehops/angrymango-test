@@ -1,0 +1,4 @@
+---
+hostname: angrymango.test
+docroot: /var/www/frontend/web
+log_file_type: apache2
