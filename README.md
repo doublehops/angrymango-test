@@ -26,6 +26,14 @@ IdentityFile /var/www/angrymango/.vagrant/machines/default/virtualbox/private_ke
 
 Startup virtual machine - change to the project's working directory: `vagrant up`.
 
+Note: For some reason this Vagrant box doesn't have Python3 installed so we need to do it manually:
+```
+# ssh angrymango.test
+# sudo apt-get update && sudo apt-get upgrade
+# sudo apt-get install python3
+# sudo ln -s /usr/bin/python3 /usr/bin/python
+```
+
 Provision Vagrant machine: `dev/provision.sh local_dev`
 
 ssh into Vagrant machine `ssh angrymango.test` and type:
