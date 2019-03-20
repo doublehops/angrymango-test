@@ -23,4 +23,3 @@ if (!YII_ENV_TEST) {
 }
 
 return $config;
-debug
